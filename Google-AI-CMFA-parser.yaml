@@ -1,0 +1,18 @@
+parsers:
+  yaml:
+    prepend-proxy-groups:
+      - name: "Google & AI"
+        type: select
+        include-all: true
+        filter: '(?i)动态.*家宽|家宽.*动态'
+        exclude-filter: '(?i)流量|到期|超时'
+
+    prepend-rules:
+      - DOMAIN-SUFFIX,gemini.google.com,Google & AI
+      - DOMAIN-SUFFIX,generativelanguage.googleapis.com,Google & AI
+      - DOMAIN-SUFFIX,ai.google.dev,Google & AI
+      - DOMAIN-SUFFIX,aistudio.google.com,Google & AI
+      - DOMAIN-SUFFIX,google.com,Google & AI
+      - DOMAIN-SUFFIX,googleapis.com,Google & AI
+      - DOMAIN-SUFFIX,gstatic.com,Google & AI
+      - DOMAIN-SUFFIX,googleusercontent.com,Google & AI
