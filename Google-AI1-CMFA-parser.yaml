@@ -1,0 +1,7 @@
+parsers:
+  yaml:
+    prepend-proxy-groups:
+      - name: "TEST-PARSER"
+        type: select
+        proxies:
+          - "DIRECT"
