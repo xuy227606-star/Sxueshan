@@ -1,11 +1,116 @@
 parsers:
   yaml:
     prepend-proxy-groups:
-      - name: "Google & AI"
+      # =========================
+      # 各地区动态家宽
+      # =========================
+
+      - name: "🇭🇰 香港动态家宽"
+        type: select
+        include-all: true
+        filter: '(?i)(🇭🇰|香港).*动态.*家宽|(?i)(🇭🇰|香港).*家宽.*动态'
+        exclude-filter: '(?i)流量|到期|超时'
+
+      - name: "🇹🇼 台湾动态家宽"
+        type: select
+        include-all: true
+        filter: '(?i)(🇹🇼|台湾).*动态.*家宽|(?i)(🇹🇼|台湾).*家宽.*动态'
+        exclude-filter: '(?i)流量|到期|超时'
+
+      - name: "🇯🇵 日本动态家宽"
+        type: select
+        include-all: true
+        filter: '(?i)(🇯🇵|日本).*动态.*家宽|(?i)(🇯🇵|日本).*家宽.*动态'
+        exclude-filter: '(?i)流量|到期|超时'
+
+      - name: "🇸🇬 新加坡动态家宽"
+        type: select
+        include-all: true
+        filter: '(?i)(🇸🇬|新加坡|狮城).*动态.*家宽|(?i)(🇸🇬|新加坡|狮城).*家宽.*动态'
+        exclude-filter: '(?i)流量|到期|超时'
+
+      - name: "🇰🇷 韩国动态家宽"
+        type: select
+        include-all: true
+        filter: '(?i)(🇰🇷|韩国).*动态.*家宽|(?i)(🇰🇷|韩国).*家宽.*动态'
+        exclude-filter: '(?i)流量|到期|超时'
+
+      - name: "🇺🇸 美国动态家宽"
+        type: select
+        include-all: true
+        filter: '(?i)(🇺🇸|美国|USA|US).*动态.*家宽|(?i)(🇺🇸|美国|USA|US).*家宽.*动态'
+        exclude-filter: '(?i)流量|到期|超时'
+
+      - name: "🇨🇦 加拿大动态家宽"
+        type: select
+        include-all: true
+        filter: '(?i)(🇨🇦|加拿大|Canada).*动态.*家宽|(?i)(🇨🇦|加拿大|Canada).*家宽.*动态'
+        exclude-filter: '(?i)流量|到期|超时'
+
+      - name: "🇬🇧 英国动态家宽"
+        type: select
+        include-all: true
+        filter: '(?i)(🇬🇧|英国|UK|United Kingdom).*动态.*家宽|(?i)(🇬🇧|英国|UK|United Kingdom).*家宽.*动态'
+        exclude-filter: '(?i)流量|到期|超时'
+
+      - name: "🇩🇪 德国动态家宽"
+        type: select
+        include-all: true
+        filter: '(?i)(🇩🇪|德国|Germany).*动态.*家宽|(?i)(🇩🇪|德国|Germany).*家宽.*动态'
+        exclude-filter: '(?i)流量|到期|超时'
+
+      - name: "🇫🇷 法国动态家宽"
+        type: select
+        include-all: true
+        filter: '(?i)(🇫🇷|法国|France).*动态.*家宽|(?i)(🇫🇷|法国|France).*家宽.*动态'
+        exclude-filter: '(?i)流量|到期|超时'
+
+      - name: "🇳🇱 荷兰动态家宽"
+        type: select
+        include-all: true
+        filter: '(?i)(🇳🇱|荷兰|Netherlands).*动态.*家宽|(?i)(🇳🇱|荷兰|Netherlands).*家宽.*动态'
+        exclude-filter: '(?i)流量|到期|超时'
+
+      - name: "🇦🇺 澳大利亚动态家宽"
+        type: select
+        include-all: true
+        filter: '(?i)(🇦🇺|澳大利亚|澳洲|Australia).*动态.*家宽|(?i)(🇦🇺|澳大利亚|澳洲|Australia).*家宽.*动态'
+        exclude-filter: '(?i)流量|到期|超时'
+
+      # =========================
+      # 未预设地区的动态家宽
+      # =========================
+
+      - name: "🌍 其他动态家宽"
         type: select
         include-all: true
         filter: '(?i)动态.*家宽|家宽.*动态'
-        exclude-filter: '(?i)流量|到期|超时'
+        exclude-filter: '(?i)(🇭🇰|香港|🇹🇼|台湾|🇯🇵|日本|🇸🇬|新加坡|狮城|🇰🇷|韩国|🇺🇸|美国|USA|US|🇨🇦|加拿大|Canada|🇬🇧|英国|UK|United Kingdom|🇩🇪|德国|Germany|🇫🇷|法国|France|🇳🇱|荷兰|Netherlands|🇦🇺|澳大利亚|澳洲|Australia|流量|到期|超时)'
+
+      # =========================
+      # Google & AI 总选择组
+      # =========================
+
+      - name: "Google & AI"
+        type: select
+        proxies:
+          - "🇭🇰 香港动态家宽"
+          - "🇹🇼 台湾动态家宽"
+          - "🇯🇵 日本动态家宽"
+          - "🇸🇬 新加坡动态家宽"
+          - "🇰🇷 韩国动态家宽"
+          - "🇺🇸 美国动态家宽"
+          - "🇨🇦 加拿大动态家宽"
+          - "🇬🇧 英国动态家宽"
+          - "🇩🇪 德国动态家宽"
+          - "🇫🇷 法国动态家宽"
+          - "🇳🇱 荷兰动态家宽"
+          - "🇦🇺 澳大利亚动态家宽"
+          - "🌍 其他动态家宽"
+
+    # =========================
+    # Google / Gemini / AI 规则
+    # =========================
 
     prepend-rules:
       - DOMAIN-SUFFIX,gemini.google.com,Google & AI
