@@ -1,6 +1,9 @@
 name: Actions Test
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
