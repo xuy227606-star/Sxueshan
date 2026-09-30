@@ -1,93 +1,12 @@
-name: Build Google AI Mihomo Config
+name: Actions Test
 
 on:
   workflow_dispatch:
 
-  schedule:
-    - cron: "17 */6 * * *"
-
-permissions:
-  contents: read
-
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Install Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.x"
-
-      - name: Install PyYAML
-        run: |
-          python -m pip install --upgrade pip
-          pip install pyyaml
-
-      - name: Generate config
-        env:
-          XUESHAN_SUB_URL: ${{ secrets.XUESHAN_SUB_URL }}
-        run: |
-          python generate.py
-
-      - name: Check generated config
-        run: |
-          python - <<'PY'
-          import yaml
-
-          with open(
-              "generated-config.yaml",
-              encoding="utf-8"
-          ) as f:
-              config = yaml.safe_load(f)
-
-          assert isinstance(config, dict)
-          assert "proxies" in config
-          assert "proxy-groups" in config
-          assert "rules" in config
-
-          groups = {
-              g.get("name")
-              for g in config["proxy-groups"]
-              if isinstance(g, dict)
-          }
-
-          required = {
-              "Google & AI",
-              "🇭🇰 香港动态家宽",
-              "🇹🇼 台湾动态家宽",
-              "🇯🇵 日本动态家宽",
-              "🇸🇬 新加坡动态家宽",
-              "🇰🇷 韩国动态家宽",
-              "🇺🇸 美国动态家宽",
-              "🇨🇦 加拿大动态家宽",
-              "🇬🇧 英国动态家宽",
-              "🇩🇪 德国动态家宽",
-              "🇫🇷 法国动态家宽",
-              "🇳🇱 荷兰动态家宽",
-              "🇦🇺 澳大利亚动态家宽",
-              "🌍 其他动态家宽"
-          }
-
-          missing = required - groups
-
-          if missing:
-              raise RuntimeError(
-                  "缺少策略组: "
-                  + ", ".join(sorted(missing))
-              )
-
-          print("配置检查通过")
-          print("节点数量:", len(config["proxies"]))
-          print("策略组数量:", len(config["proxy-groups"]))
-          PY
-
-      - name: Save generated config
-        uses: actions/upload-artifact@v6
-        with:
-          name: mihomo-google-ai-config
-          path: generated-config.yaml
-          retention-days: 7
+      - name: Test
+        run: echo "GitHub Actions is working"
